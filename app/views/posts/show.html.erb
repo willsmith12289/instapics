@@ -1,0 +1,19 @@
+<section class="row">
+  <h1 class="name">
+    <%= @post.user.user_name %>
+  </h1>
+  <article class="center-block text-center">
+    <%= image_tag @post.image.url(:medium) %>
+    <p class="caption">
+      <%= @post.caption %>
+    </p>
+    
+    <% if @post.user.id == current_user.id %>
+      <%= link_to "Edit Post", edit_post_path(@post) %>
+      <%= link_to "Cancel", posts_path %>
+    <% else %>
+      <%= link_to "Cancel", posts_path %>
+    <% end %>
+    
+  </article>
+</section>
