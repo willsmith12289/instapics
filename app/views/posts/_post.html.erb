@@ -1,0 +1,38 @@
+<div class="row">
+  <%= link_to (image_tag post.image.url(:medium), class: 'img-responsive, center-block'), post_path(post) %>
+  <p class="caption">
+    <%= post.caption %>
+  </p>
+</div>
+<div class="row">
+  <aside class="col-md-4"></aside>
+  <% if post.comments %>
+    <% post.comments.each do |comment| %>
+      <div class="col-md-1">
+        <%= comment.user.user_name %>
+      </div>
+      <div class="col-md-3">
+        <%= comment.content %>
+      </div>
+      <% if comment.user == current_user %>
+        <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are You Sure?" } do %>
+          <span class="glyphicon glyphicon-remove delete-comment"></span>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <aside class="col-md-4"></aside>
+</div>
+</br>
+<div class="row">
+<aside class="col-md-4"></aside>
+  <div class="col-md-1">
+    <span class="glyphicon glyphicon-heart-empty"></span>
+  </div>
+  <div class="col-md-2">
+    <%= form_for [post, post.comments.new] do |f| %>
+      <%= f.text_field :content, placeholder: 'Add a comment.' %>
+    <% end %>
+  </div>
+  <aside class="col-md-5"></aside>
+</div>
