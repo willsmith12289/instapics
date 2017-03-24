@@ -6,7 +6,7 @@
         <div class="img-circle">
           <%= profile_avatar_select(@user) %>
         </div>
-        <%= f.file_field :avatar, onChange: 'loadFile(event)' %>
+        <%= f.file_field :avatar, onChange: 'loadFile(event)', class: 'form-control' %>
       </section>
     </div>
   </div>
@@ -14,7 +14,7 @@
     <div class="col-md-12">
       <section class="form-group text-center">
         <h4>Update Your Bio</h4>
-        <%= f.text_area :bio, label: false, rows: 4 %>
+        <%= f.text_area :bio, label: false, rows: 4, class: 'form-control' %>
       </section>
     </div>
   </div>

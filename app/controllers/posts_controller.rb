@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
@@ -59,7 +58,8 @@ class PostsController < ApplicationController
   end
 
   def owned_post
-    unless current_user.id == @post.user.id
+    @post = Post.find(params[:id])
+    unless current_user.id == @post.user_id
       flash[:alert] = "That post doesn't belong to you!"
       redirect_to root_path
     end

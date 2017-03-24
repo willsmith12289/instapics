@@ -1,9 +1,9 @@
 <%= simple_form_for @post, html: {class: 'form-horizontal', multipart: true} do |f| %>
-  <div class='left-margin'>
-    <%= f.input :image %>
+  <div class='left-margin form-group'>
+    <%= f.input :image, class: 'form-control' %>
   </div>
-  <div class='text-center'>
-    <%= f.input :caption %>
+  <div class='text-center form-group'>
+    <%= f.input :caption, class: 'form-control' %>
     <%= f.button :submit, class: 'btn-success'%>
   </div>
 <% end %> 
