@@ -3,10 +3,11 @@ class PostsController < ApplicationController
 
   before_action :owned_post, only: [:edit, :update, :destroy]
   
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :liked]
 
   def index
     @posts = Post.all.order('created_at DESC').page params[:page]
+
   end
 
   def new
@@ -25,6 +26,12 @@ class PostsController < ApplicationController
   end
 
   def show
+
+  end
+
+  def liked
+    current_user.likes @post
+    render :back
   end
 
   def edit
@@ -46,7 +53,6 @@ class PostsController < ApplicationController
     flash[:success] = "Post deleted."
     redirect_to posts_path
   end
-
   private
 
   def post_params
@@ -56,6 +62,7 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
 
   def owned_post
     @post = Post.find(params[:id])

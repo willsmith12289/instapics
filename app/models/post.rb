@@ -12,5 +12,8 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   paginates_per 3
+
+  acts_as_votable
+
   
 end

@@ -20,7 +20,11 @@
 <div class="row">
   <aside class="col-md-4"></aside>
   <div class="col-md-1">
-    <span class="glyphicon glyphicon-heart-empty"></span>
+  <%= link_to liked_post_path(post), method: :put, remote: true do %>
+    <span id="liked" class="glyphicon glyphicon-heart" onclick="this.style.color='red'">
+    </span>
+  <% end -%>
+    <span id="likes"><%= post.get_likes.size %></span>
   </div>
   <div class="col-md-2">
     <%= form_for [post, post.comments.new] do |f| %>
