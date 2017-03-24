@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     member do
-      put 'liked', to: 'posts#liked'
+      get 'liked', to: 'posts#liked'
     end
     resources :comments
   end

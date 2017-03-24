@@ -1,1 +1,11 @@
-<h1>here</h1>
+<div class="liked row">
+  <aside class="col-md-3"></aside>
+  <div class="col-md-1">
+    <%= link_to '', liked_post_path(post.id), remote: true, id: "like_#{post.id}", class:"glyphicon #{liked_post post}", style:"color:red; text-decoration:none" %>
+    <span id="likes"><%= post.get_likes.size %></span>
+  </div>
+  <div class="col-md-5f">
+    <%= likers_of post %>
+  </div>
+  <aside class="col-md-3"></aside>
+</div>

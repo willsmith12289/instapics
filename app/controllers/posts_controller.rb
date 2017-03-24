@@ -30,8 +30,12 @@ class PostsController < ApplicationController
   end
 
   def liked
-    current_user.likes @post
-    render :back
+    if @post.liked_by current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    end
   end
 
   def edit
