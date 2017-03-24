@@ -1,7 +1,4 @@
 <section class="row">
-  <h1 class="name">
-    <%= @post.user.user_name %>
-  </h1>
   <%= render 'post', post: @post %>
   <article class="center-block text-center">
     <% if @post.user.id == current_user.id %>

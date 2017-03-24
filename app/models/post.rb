@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-
+  validates :caption, length: { minimum: 3, maximum: 300 }
   validates :user_id, presence: true
   validates :image, presence: true
 
@@ -10,5 +10,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments, dependent: :destroy
+
+  paginates_per 3
   
 end
