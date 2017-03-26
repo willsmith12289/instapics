@@ -1,7 +1,5 @@
 class ProfilesController < ApplicationController
-  def index
-    @user = User.find_by(user_name: params[:user_name])
-  end
+  before_action :authenticate_user!
 
   def show
     @user = User.find_by(user_name: params[:user_name])
