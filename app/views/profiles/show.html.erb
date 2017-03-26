@@ -1,4 +1,6 @@
 <%= profile_avatar_select(@user) %>
+<%= @user.user_name %>
+<%= @user.id %>
 <% if @user == current_user %>
   <%= link_to "Edit Profile", edit_profile_path(@user.user_name), class: 'btn edit-button' %>
 <% end %>

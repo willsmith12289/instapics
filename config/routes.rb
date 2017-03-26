@@ -5,14 +5,18 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   resources :posts do
+    member do
+      get 'liked', to: 'posts#liked'
+    end
     resources :comments
   end
 
   root 'posts#index'
 
-    get ':user_name', to: 'profiles#show', as: :profile
+  get ':user_name', to: 'profiles#show', as: :profile
   get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
   patch ':user_name/edit', to: 'profiles#update', as: :update_profile
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

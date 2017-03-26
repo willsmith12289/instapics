@@ -13,14 +13,16 @@
     <%= post.caption %>
   </p>
 </div>
+<%= render 'posts/liked', post: post %>
 <% if post.comments %>
+    <h3 class="comments">Comments</h3>
   <%= render post.comments, post: post %>
 <% end %>
 </br>
 <div class="row">
   <aside class="col-md-4"></aside>
   <div class="col-md-1">
-    <span class="glyphicon glyphicon-heart-empty"></span>
+  
   </div>
   <div class="col-md-2">
     <%= form_for [post, post.comments.new] do |f| %>
