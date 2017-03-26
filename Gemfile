@@ -27,6 +27,10 @@ gem 'devise'
 
 gem 'kaminari'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'gon'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
